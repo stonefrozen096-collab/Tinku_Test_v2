@@ -11,3 +11,4 @@ python-multipart>=0.0.9
 email-validator>=2.1.0
 reportlab
 python-docx
+aiohttp>=3.9.0
