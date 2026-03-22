@@ -3,6 +3,7 @@ Tinku Agent — providers.py
 Phase 2: GNews search, source tracking, report generation
 """
 import httpx
+import os
 import json
 import re
 from typing import AsyncGenerator, List, Dict, Optional, Tuple
