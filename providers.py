@@ -310,7 +310,7 @@ def get_query_hash(query: str) -> str:
 
 async def get_cached_search(db, query: str) -> dict:
     """Check MongoDB for cached search result."""
-    if not db:
+    if db is None:
         return None
     try:
         query_hash = get_query_hash(query)
@@ -335,7 +335,7 @@ async def get_cached_search(db, query: str) -> dict:
 
 async def save_search_cache(db, query: str, data: str, sources: list):
     """Save search result to MongoDB cache."""
-    if not db:
+    if db is None:
         return
     try:
         query_hash = get_query_hash(query)
