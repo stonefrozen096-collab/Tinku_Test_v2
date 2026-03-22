@@ -3,6 +3,7 @@ Tinku Agent — providers.py
 Phase 2: GNews search, source tracking, report generation
 """
 import httpx
+import os
 import json
 import re
 from typing import AsyncGenerator, List, Dict, Optional, Tuple
@@ -310,7 +311,7 @@ def get_query_hash(query: str) -> str:
 
 async def get_cached_search(db, query: str) -> dict:
     """Check MongoDB for cached search result."""
-    if not db:
+    if db is None:
         return None
     try:
         query_hash = get_query_hash(query)
@@ -335,7 +336,7 @@ async def get_cached_search(db, query: str) -> dict:
 
 async def save_search_cache(db, query: str, data: str, sources: list):
     """Save search result to MongoDB cache."""
-    if not db:
+    if db is None:
         return
     try:
         query_hash = get_query_hash(query)
